@@ -1,0 +1,293 @@
+/* Global Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f7fa;
+  color: #333;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+/* Headings */
+h1, h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* Form Inputs & Buttons */
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="file"],
+select,
+textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.95em;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  display: inline-block;
+  background: #3498db;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  font-size: 0.95em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 5px;
+}
+
+button:hover {
+  background: #2980b9;
+}
+
+/* Filters Section - Modern Horizontal */
+.filters {
+  background: #f9fbfd;
+  border: 1px solid #e1e6eb;
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin-bottom: 30px;
+}
+
+.filters form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.filters .form-group {
+  flex: 1;
+  min-width: 120px;
+}
+
+.filters label {
+  font-size: 0.8em;
+  color: #555;
+  margin-bottom: 3px;
+}
+
+.filters button[type="submit"] {
+  background: #27ae60;
+}
+
+.filters button[type="submit"]:hover {
+  background: #1e8449;
+}
+
+.filters button[type="button"] {
+  background: #95a5a6;
+}
+
+.filters button[type="button"]:hover {
+  background: #7f8c8d;
+}
+
+/* Incident Cards - Modern Design */
+.incidents-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.incident-card {
+  border: 1px solid #e1e6eb;
+  border-radius: 8px;
+  padding: 15px 20px;
+  background: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.incident-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.incident-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.incident-header .date {
+  font-weight: 600;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.incident-header .category {
+  background: #3498db;
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Incident Title & Description */
+.incident-card h3 {
+  font-size: 1em;
+  margin-bottom: 5px;
+  color: #2c3e50;
+}
+
+.incident-card p {
+  font-size: 0.9em;
+  color: #666;
+}
+
+/* Attachment link */
+.attachment a {
+  display: inline-block;
+  margin-top: 5px;
+  font-size: 0.85em;
+  color: #3498db;
+  text-decoration: none;
+}
+
+.attachment a:hover {
+  text-decoration: underline;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  color: #777;
+  font-style: italic;
+  margin-top: 20px;
+}
+
+/* Form Section */
+#incident-form h2 {
+  margin-bottom: 15px;
+  font-size: 1.2em;
+}
+
+/* Responsive Design */
+@media (max-width: 700px) {
+  .filters form {
+    flex-direction: column;
+  }
+
+  .incident-card {
+    padding: 15px;
+  }
+}
+
+.incident-actions {
+  margin-top: 10px;
+}
+
+.incident-actions .btn-edit,
+.incident-actions .btn-delete {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 0.85em;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.incident-actions .btn-edit {
+  background: #f39c12;
+}
+
+.incident-actions .btn-edit:hover {
+  background: #d68910;
+}
+
+.incident-actions .btn-delete {
+  background: #e74c3c;
+  border: none;
+  cursor: pointer;
+}
+
+.incident-actions .btn-delete:hover {
+  background: #c0392b;
+}
+.compact-form {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.compact-form h2 {
+  margin-top: 0;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.85em;
+  margin-bottom: 3px;
+  color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 6px 8px;
+  font-size: 0.9em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-group button {
+  padding: 8px 12px;
+  background: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.form-group button:hover {
+  background: #27ae60;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+

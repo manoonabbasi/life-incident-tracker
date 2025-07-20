@@ -1,0 +1,43 @@
+<div class="filters">
+  <h2>Filter Incidents</h2>
+  <form id="filter-form" method="GET">
+    <div class="form-group">
+      <label>Year</label>
+      <select name="year">
+        <option value="">All Years</option>
+        {% for year in years %}
+        <option value="{{ year }}" {% if current_filters.year == year %}selected{% endif %}>{{ year }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Month</label>
+      <select name="month">
+        <option value="">All Months</option>
+        {% for month in months %}
+        <option value="{{ "%02d"|format(month) }}" {% if current_filters.month == "%02d"|format(month) %}selected{% endif %}>{{ month|month_name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Category</label>
+      <select name="category">
+        <option value="">All Categories</option>
+        {% for category in categories %}
+        <option value="{{ category }}" {% if current_filters.category == category %}selected{% endif %}>{{ category }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Search</label>
+      <input type="text" name="search" value="{{ current_filters.search if current_filters else '' }}" placeholder="Search...">
+    </div>
+
+    <button type="submit">Apply Filters</button>
+    <button type="button" onclick="window.location.search=''">Reset</button>
+  </form>
+</div>
+

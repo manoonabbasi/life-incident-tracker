@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  life-tracker:
+    image: incident-tracker:latest
+    container_name: life-tracker-app
+    ports:
+      - "5032:5032"
+    volumes:
+      - db-data:/project/life_incidents.db
+      - uploads-data:/project/uploads
+    restart: always
+    environment:
+      - FLASK_ENV=development
+
+volumes:
+  db-data:
+  uploads-data:
+

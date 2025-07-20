@@ -1,0 +1,43 @@
+<form id="incident-form" method="POST" action="/add" enctype="multipart/form-data" class="compact-form">
+  <h2>Add Incident</h2>
+  <div class="form-grid">
+    <div class="form-group">
+      <label>Date</label>
+      <input type="date" name="date" required value="{{ datetime.now().strftime('%Y-%m-%d') }}">
+    </div>
+
+    <div class="form-group">
+      <label>Time</label>
+      <input type="time" name="time" required value="{{ datetime.now().strftime('%H:%M') }}">
+    </div>
+
+    <div class="form-group">
+      <label>Title *</label>
+      <input type="text" name="title" required placeholder="Incident Title">
+    </div>
+
+    <div class="form-group">
+      <label>Category</label>
+      <select name="category">
+        {% for category in categories %}
+        <option value="{{ category }}">{{ category }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="form-group full-width">
+      <label>Description</label>
+      <textarea name="description" rows="2" placeholder="Brief description"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Attachment</label>
+      <input type="file" name="attachment" accept=".png,.jpg,.pdf,.docx">
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn-primary">Add</button>
+    </div>
+  </div>
+</form>
+

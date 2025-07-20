@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Life Incident Tracker</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Life Incident Tracker</h1>
+    </header>
+
+    <main>
+      <!-- Add Incident Form -->
+      {% include '_incident-form.html' %}
+      
+      <!-- Filters Section -->
+      {% include '_filters.html' %}
+
+      
+
+      <!-- Incidents List -->
+      <section class="incidents-list">
+        {% if incidents %}
+          {% for incident in incidents %}
+          <article class="incident-card">
+            <div class="incident-header">
+              <time datetime="{{ incident[1] }}">{{ incident[1] }}</time>
+              <span class="category">{{ incident[4] }}</span>
+            </div>
+            <h3>{{ incident[2] }}</h3>
+            <p>{{ incident[3] }}</p>
+            {% if incident[5] %}
+            <div class="attachment">
+              <a href="{{ url_for('uploaded_file', filename=incident[5]) }}" target="_blank">View Attachment</a>
+            </div>
+            {% endif %}
+
+            <!-- Edit & Delete Actions -->
+            <div class="incident-actions">
+              <a href="{{ url_for('edit_incident', id=incident[0]) }}" class="btn-edit">Edit</a>
+              <form method="POST" action="{{ url_for('delete_incident', id=incident[0]) }}" style="display:inline;">
+                <button type="submit" class="btn-delete" onclick="return confirm('Delete this incident?');">Delete</button>
+              </form>
+            </div>
+          </article>
+          {% endfor %}
+        {% else %}
+        <div class="empty-state">
+          <p>No incidents found. Add your first incident!</p>
+        </div>
+        {% endif %}
+      </section>
+    </main>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
